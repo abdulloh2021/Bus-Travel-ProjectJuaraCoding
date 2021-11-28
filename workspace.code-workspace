@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {},
+	"extensions": {
+		"recommendations": [
+			"tht13.html-preview-vscode",
+			"abusaidm.html-snippets"
+		]
+	}
+}
