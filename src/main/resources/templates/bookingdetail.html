@@ -29,7 +29,7 @@
             </div><br>
             <div class="form-cekdata-booking">
                 <table class="table">
-                    <tr>
+                    <tr class="table-header">
                         <td scope="col">id booking</td>
                         <td scope="col">nik</td> 
                         <td scope="col">nama</td> 
@@ -41,14 +41,14 @@
                     </tr>
                     <tr>
                         
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
-                        <td scope="col">contoh b</td>
+                        <td scope="col" th:text="${dataBookingTampil.id}">
+                        <td scope="col" th:text="${dataBookingTampil.nik.nik}">
+                        <td scope="col" th:text="${dataBookingTampil.nik.nama}">    
+                        <td scope="col" th:text="${dataBookingTampil.id_keberangkatan.id}">    
+                        <td scope="col" th:text="${dataBookingTampil.id_keberangkatan.tanggal}">   
+                        <td scope="col" th:text="${dataBookingTampil.id_keberangkatan.no_polisi.nama_perusahaan.nama}"> 
+                        <td scope="col" th:text="${dataBookingTampil.id_keberangkatan.kelas}">     
+                        <td scope="col" th:text="${dataBookingTampil.id_keberangkatan.harga}">   
                     </tr>
                    
                     

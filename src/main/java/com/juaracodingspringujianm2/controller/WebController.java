@@ -74,25 +74,67 @@ public class WebController {
 
 
 
-    @GetMapping("/carikeberangkatan")
-	public String cariKeberangkatan(Model model) {
-		model.addAttribute("formCekDataKeberangkatan", new Keberangkatan());
-		return "carikeberangkatan";
-	}
+    // @GetMapping("/carikeberangkatan")
+	// public String cariKeberangkatan(Model model) {
+	// 	model.addAttribute("formCekDataKeberangkatan", new Keberangkatan());
+	// 	return "carikeberangkatan";
+	// }
 
 	
-	@PostMapping("/cekkeberangkatan")
-	public String cekDataKeberangkatan(@ModelAttribute("formCekDataKeberangkatan") Keberangkatan formCekDataKeberangkatan, Model model){
-		List<KeberangkatanBus> dataCekKeberangkatan = keberangkatanRepo.findByTerminalAwalAndTanggal(formCekDataKeberangkatan.getId_jurusan().getTerminal_awal(), formCekDataKeberangkatan.getTanggal()); 
+	// @PostMapping("/cekkeberangkatan")
+	// public String cekDataKeberangkatan(@ModelAttribute("formCekDataKeberangkatan") Keberangkatan formCekDataKeberangkatan, Model model){
+	// 	List<KeberangkatanBus> dataCekKeberangkatan = keberangkatanRepo.findByTerminalAwalAndTanggal(formCekDataKeberangkatan.getId_jurusan().getTerminal_awal(), formCekDataKeberangkatan.getTanggal()); 
 		
 		
-		if (dataCekKeberangkatan.size() == 0) {
-			return "kenihilankeberangkatan";
-		} else {
-			model.addAttribute("dataCekKeberangkatanList", dataCekKeberangkatan);
-			return "listdetailkeberangkatan";
-		}
-	}
+	// 	if (dataCekKeberangkatan.size() == 0) {
+	// 		return "kenihilankeberangkatan";
+	// 	} else {
+	// 		model.addAttribute("dataCekKeberangkatanList", dataCekKeberangkatan);
+	// 		return "listdetailkeberangkatan";
+	// 	}
+	// }
+
+//  ======================== bisa tapi hanya terminal awal dan tanggal ===========================
+	// @GetMapping("/carikeberangkatan")
+	// public String cariKeberangkatan(Model model) {
+	// 	model.addAttribute("formCekDataKeberangkatan", new Keberangkatan());
+	// 	return "tampil";
+	// }
+
+	
+	// @PostMapping("/cekkeberangkatan")
+	// public String cekDataKeberangkatan(@ModelAttribute("formCekDataKeberangkatan") Keberangkatan formCekDataKeberangkatan, Model model){
+	// 	List<KeberangkatanBus> dataCekKeberangkatan = keberangkatanRepo.findByTerminalAwalAndTanggal(formCekDataKeberangkatan.getId_jurusan().getTerminal_awal(), formCekDataKeberangkatan.getTanggal()); 
+		
+		
+	// 	if (dataCekKeberangkatan.size() == 0) {
+	// 		return "kenihilankeberangkatan";
+	// 	} else {
+	// 		model.addAttribute("dataCekKeberangkatanList", dataCekKeberangkatan);
+	// 		return "tampil";
+	// 	}
+	// }
+
+	// @GetMapping("/carikeberangkatan")
+	// public String cariKeberangkatan(Model model) {
+	// 	model.addAttribute("formCekDataKeberangkatan", new Keberangkatan());
+	// 	return "tampil";
+	// }
+
+	
+	// @PostMapping("/cekkeberangkatan")
+	// public String cekDataKeberangkatan(@ModelAttribute("formCekDataKeberangkatan") Keberangkatan formCekDataKeberangkatan, Model model){
+	// 	List<KeberangkatanBus> dataCekKeberangkatan = keberangkatanRepo.findByTerminalAwalAkhirAndTanggal(formCekDataKeberangkatan.getId_jurusan().getTerminal_awal(),formCekDataKeberangkatan.getId_jurusan().getTerminal_akhir(), formCekDataKeberangkatan.getTanggal()); 
+		
+		
+	// 	if (dataCekKeberangkatan.size() == 0) {
+	// 		return "kenihilankeberangkatan";
+	// 	} else {
+	// 		model.addAttribute("dataCekKeberangkatanList", dataCekKeberangkatan);
+	// 		return "tampil";
+	// 	}
+	// }
+
 
 	@GetMapping("/cancel")
 	public String cancel(Model model) {
@@ -112,6 +154,58 @@ public class WebController {
 	}
 
 
+	@GetMapping("/booking")
+	public String GetDora7(Model model) {
+		model.addAttribute("formDataBooking", new Booking());
+		return "formbooking";
+	}
+	
+	@PostMapping("/postbooking")
+	public String postBooking(@ModelAttribute("formDataBooking") Booking formDataBooking, Model model){
+		String nik = formDataBooking.getNik().getNik();
+		long idkKeberangkatan = formDataBooking.getId_keberangkatan().getId();
+		List<Penumpang> penumpangSementara = penumpangRepo.findByNik(nik);
+		formDataBooking.setNik(penumpangSementara.get(0));
+		Keberangkatan keberangkatanSementara = keberangkatanRepo.getById(idkKeberangkatan);
+		formDataBooking.setId_keberangkatan(keberangkatanSementara);
+		bookingRepo.save(formDataBooking);
+		List<Booking> dataBooking = bookingRepo.findByNik(formDataBooking.getNik());
+		Booking dataBookingPilihan = dataBooking.get(dataBooking.size()-1);
+		model.addAttribute("dataBookingTampil", dataBookingPilihan);	
+		return "bookingdetail";
+		
+	}
+// yg lama
+	// @PostMapping("/postbooking")
+	// public String postBooking(@ModelAttribute("formDataBooking") Booking formDataBooking, Model model){
+	// 	bookingRepo.save(formDataBooking);
+	// 	List<Booking> dataBooking = bookingRepo.findByNik(formDataBooking.getNik());
+	// 	Booking dataBookingPilihan = dataBooking.get(dataBooking.size()-1);
+	// 	model.addAttribute("dataBookingTampil", dataBookingPilihan);	
+	// 	return "bookingdetail";
+		
+	// }
+
+
+	// @PostMapping("/postbooking")
+	// public String postBooking(@ModelAttribute("formDataBooking") Booking formDataBooking, Model model){
+	// 	bookingRepo.save(formDataBooking);
+	// 	Booking dataBooking = bookingRepo.findByNikAndIdkeberangkatan(formDataBooking.getNik().getNik(), formDataBooking.getId_keberangkatan().getId()); // ini bisa pa
+	// 	model.addAttribute("dataBookingTampil", dataBooking);	
+	// 	return "bookingdetail";
+		
+	// }
+
+
+
+
+
+
+
+
+
+
+
 	@GetMapping("/listdetailkeberangkatan")
 	public String GetDora5() {
 		return "listdetailkeberangkatan";
@@ -120,10 +214,7 @@ public class WebController {
 	public String GetDora6() {
 		return "kenihilankeberangkatan";
 	}
-	@GetMapping("/booking")
-	public String GetDora7() {
-		return "formbooking";
-	}
+	
 	@GetMapping("/berhasilbooking")
 	public String GetDora8() {
 		return "bookingdetail";

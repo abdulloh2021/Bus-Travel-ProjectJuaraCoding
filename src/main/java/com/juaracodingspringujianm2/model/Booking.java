@@ -26,11 +26,11 @@ public class Booking {
 	private long id;
 	// private long id_keberangkatan;
     // private String nik;
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="id_keberangkatan",referencedColumnName="id")
 	private Keberangkatan id_keberangkatan;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="nik",referencedColumnName="nik")
 	private Penumpang nik;
 

@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+    />
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
+
+    <link
+      id="pagestyle"
+      href="https://demos.creative-tim.com/material-kit-pro/assets/css/material-kit-pro.min.css?v=3.0.0"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+    <header>
+      <nav
+        class="
+          navbar navbar-expand-lg navbar-dark navbar-absolute
+          bg-transparent
+          shadow-none
+        "
+      >
+        <div class="container" id="home-section">
+          <a class="navbar-brand text-white" href="javascript:;">Travel-Bus</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-header-2"
+            aria-controls="navbar-header-2"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-header-2">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;"> Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;"> Ticket </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#teams-section"> Teams </a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="https://twitter.com/CreativeTim">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link mx-2"
+                  href="https://www.facebook.com/CreativeTim"
+                >
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link"
+                  href="https://www.instagram.com/CreativeTimOfficial"
+                >
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div
+        class="page-header min-vh-75"
+        style="
+          background-image: url(https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2378&q=80);
+        "
+        loading="lazy"
+      >
+        <span class="mask bg-gradient-dark opacity-4"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-white text-center">
+              <h2 class="text-white">Travel-Bus</h2>
+              <p class="lead">Pergi kemanapun bersama Travel-Bus</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+        <div class="container">
+          <form
+            th:object="${formCekDataKeberangkatan}"
+            th:action="@{/cekkeberangkatan}"
+            method="post"
+          >
+            <div
+              class="
+                row
+                border-radius-md
+                pb-4
+                p-3
+                mx-sm-0 mx-1
+                position-relative
+              "
+            >
+              <div class="col-lg-3 mt-lg-n2 mt-2">
+                <label class="ms-0">Keberangkatan</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputTerminalKeberangkatan"
+                  placeholder="Terminal Keberangkatan"
+                  th:field="*{id_jurusan.terminal_awal}"
+                />
+                <div class="input-group input-group-static mb-4">
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Pulo Gebang</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-lg-3 mt-lg-n2 mt-2">
+                <label class="ms-0">Tujuan</label>
+                <input
+                type="text"
+                class="form-control"
+                id="inputTerminalAkhir"
+                placeholder="Terminal Akhir"
+                th:field="*{id_jurusan.terminal_akhir}"
+              />
+                <div class="input-group input-group-static mb-4">
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>Poris</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                  </select>
+                </div>
+              </div>
+              <!-- =============================  Date input ========================= -->
+              <div class="col-lg-3 mt-lg-n2 mt-2">
+                <label class="ms-0">Tanggal</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputTanggal"
+                  placeholder="Tanggal"
+                  th:field="*{tanggal}"
+                />
+                
+                <div class="input-group input-group-dynamic">
+                  <!-- <div class="input-group input-group-static my-3"> -->
+
+                  <input type="date" class="form-control" />
+                </div>
+              </div>
+              <!-- ==================================================================== -->
+              <div class="col-lg-3 mt-lg-n2 mt-2">
+                <label>&nbsp;</label>
+
+                <a href="">
+                  <div class="submit">
+                    <button type="submit" class="btn btn-primary">
+                      Submit
+                    </button>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <!-- <form
+          th:object="${formCekDataKeberangkatan}"
+          th:action="@{/cekkeberangkatan}"
+          method="post"
+        >
+          <div class="header-form-daftar">
+            <h1>Cari Keberangkatan</h1>
+          </div>
+          <br />
+          <div class="form-daftar">
+            
+            <div class="form-group">
+              <label for="exampleTerminalKeberangkatan"
+                >Terminal Keberangkatan</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputTerminalKeberangkatan"
+                placeholder="Terminal Keberangkatan"
+                th:field="*{id_jurusan.terminal_awal}"
+              />
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleTerminaltujuann"
+                >Terminal Tujuan</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="inputTerminalAkhir"
+                placeholder="Terminal Keberangkatan"
+                th:field="*{id_jurusan.terminal_akhir}"
+              />
+              
+            </div>
+            <div class="form-group">
+              <label for="exampleTanggal">Tanggal</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputTanggal"
+                placeholder="Tanggal"
+                th:field="*{tanggal}"
+              />
+            </div>
+            <br />
+            <div class="submit">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </div>
+        </form> -->
+        <!-- =========================== tabel =================== -->
+        <form>
+          <div class="header-form-cekdata-keberangkatan">
+            <h1>Keberangkatan yang tersedia.</h1>
+          </div>
+          <br />
+          <div class="form-cekdata-keberangkatan">
+            <table class="table">
+              <tr>
+                <td scope="col">id</td>
+                <td scope="col">deskripsi</td>
+                <td scope="col">waktu</td>
+                <td scope="col">kelas</td>
+                <td scope="col">perusahaan</td>
+                <td scope="col">harga</td>
+              </tr>
+              <tr th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}">
+                <td scope="col" th:text="${dataCekKeberangkatan1.id}"></td>
+                <td
+                  scope="col"
+                  th:text="${dataCekKeberangkatan1.deskripsi}"
+                ></td>
+                <td scope="col" th:text="${dataCekKeberangkatan1.waktu}"></td>
+                <td scope="col" th:text="${dataCekKeberangkatan1.kelas}"></td>
+                <td
+                  scope="col"
+                  th:text="${dataCekKeberangkatan1.perusahaan}"
+                ></td>
+                <td scope="col" th:text="${dataCekKeberangkatan1.harga}"></td>
+              </tr>
+            </table>
+          </div>
+        </form>
+        <!-- =========================== end tabel ================= -->
+
+        <!-- ==================================================================== -->
+        <!-- <p>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          Link with href
+        </a>
+        
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+        </div>
+      </div> -->
+        <!-- =================================================================== -->
+
+        <div class="container" id="jadwal-section">
+          <div class="row">
+            <div class="col-8 mx-auto text-center mb-5">
+              <span class="badge badge-primary mb-2">Jadwal</span>
+              <h2>Tiket Perjalanan</h2>
+              <p>Cari Tiketmu di BusTravel Aja!</p>
+            </div>
+          </div>
+
+          <!-- ============== tiket =================== -->
+
+          <!-- ============== card =============== -->
+          <div th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}">
+            <a
+              data-bs-toggle="collapse"
+              th:href="'#dataBooking'+${dataCekKeberangkatan1.id}"
+              role="button"
+              aria-expanded="false"
+              aria-controls="dataBooking"
+            >
+              <div class="row min-vh-25">
+                <div class="row my-4">
+                  <div class="card card-background">
+                    <div
+                      class="full-background"
+                      style="
+                        background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
+                      "
+                    ></div>
+
+                    <div class="card-body pt-5">
+                      <h4 th:text="${dataCekKeberangkatan1.id}"></h4>
+                      <h3
+                        class="text-white font-weight-normal rightMost"
+                        align="right"
+                        th:text="${dataCekKeberangkatan1.harga}"
+                      >
+                        <!-- Rp. 10.000,- -->
+                      </h3>
+                      <h4
+                        class="text-white font-weight-normal rightMost"
+                        align="right"
+                        th:text="${dataCekKeberangkatan1.kelas}"
+                      >
+                        <!-- Ekonomi -->
+                      </h4>
+
+                      <br /><br />
+
+                      <h2
+                        class="text-white font-weight-normal"
+                        th:text="${dataCekKeberangkatan1.perusahaan}"
+                      >
+                        <!-- Sumber Melarat -->
+                      </h2>
+                      <h3
+                        class="text-white font-weight-normal"
+                        th:text="${dataCekKeberangkatan1.deskripsi}"
+                      >
+                        <!-- Jakarta - Solo -->
+                      </h3>
+                      <h4
+                        class="text-white font-weight-normal"
+                        th:text="${dataCekKeberangkatan1.waktu}"
+                      >
+                        <!-- 14/02/2021 10:10:00 -->
+                      </h4>
+                      <p>
+                        888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <!-- =============================== ini yangkalo di klik muncul ====================== -->
+            <div class="collapse" th:id="'dataBooking'+${dataCekKeberangkatan1.id}">
+              <div class="card card-body">
+                <section>
+                  <div class="container py-4">
+                    <div class="row">
+                      <div
+                        class="
+                          col-lg-7
+                          mx-auto
+                          d-flex
+                          justify-content-center
+                          flex-column
+                        "
+                      >
+                        <h3 class="text-center">Booking</h3>
+                        <form
+                          role="form"
+                          id="contact-form"
+                          method="post"
+                          autocomplete="off"
+                        >
+                          <div class="card-body">
+                            <div class="mb-4">
+                              <h4 th:text="${dataCekKeberangkatan1.id}"></h4>
+                              <div class="input-group input-group-dynamic">
+                                <label class="form-label">Nama</label>
+                                <input type="text" class="form-control" />
+                              </div>
+                            </div>
+
+                            <div class="row">
+                              <div class="col-md-12">
+                                <button
+                                  type="submit"
+                                  class="btn bg-gradient-dark w-100"
+                                >
+                                  Send Message
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </div>
+          <!-- ============== end card ============== -->
+         
+
+          <!-- ====================================== -->
+        </div>
+      </div>
+    </header>
+
+    <!-- =============================================== teams ======================================= -->
+    <section class="py-5" id="teams-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 mx-auto text-center mb-5">
+            <h3>The Executive Team</h3>
+            <p class="font-weight-normal">
+              This is the paragraph where you can write more details about your
+              team. Keep you user engaged by providing meaningful information.
+            </p>
+          </div>
+        </div>
+        <div class="row mt-lg-5 mt-3">
+          <div class="col-md-6">
+            <div class="card card-profile card-plain">
+              <div class="row">
+                <div class="col-lg-5">
+                  <a href="javascript:;">
+                    <div class="position-relative">
+                      <div class="blur-shadow-image">
+                        <img
+                          class="w-100 border-radius-lg shadow-lg"
+                          src="../../assets/foto/abdul.jpg"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-7 ps-0 my-auto">
+                  <div class="card-body text-start">
+                    <div class="p-md-0 pt-3">
+                      <h5 class="font-weight-bolder mb-0">Abdulloh</h5>
+                      <p class="text-uppercase text-sm font-weight-bold mb-2">
+                        Front End Developer
+                      </p>
+                    </div>
+                    <p class="mb-4">
+                      Apapun yang terjadi ingatlah, Tetap bernafas
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2"
+                    >
+                      <i class="fab fa-facebook"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-twitter btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-github btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-github"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-profile card-plain">
+              <div class="row">
+                <div class="col-lg-5">
+                  <a href="javascript:;">
+                    <div class="position-relative">
+                      <div class="blur-shadow-image">
+                        <img
+                          class="w-100 border-radius-lg shadow-lg"
+                          src="../../assets/img/examples/studio-3.jpg"
+                          alt="profile image"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-7 ps-0 my-auto">
+                  <div class="card-body text-start">
+                    <div class="p-md-0 pt-3">
+                      <h5 class="font-weight-bolder mb-0">Jordan Michael</h5>
+                      <p class="text-uppercase text-sm font-weight-bold mb-2">
+                        UI Designer
+                      </p>
+                    </div>
+                    <p class="mb-4">
+                      Artist is a term applied to a person who engages in an
+                      activity deemed to be an art.
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2"
+                    >
+                      <i class="fab fa-facebook"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-twitter btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-github btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-github"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-lg-5 mt-3">
+          <div class="col-md-6">
+            <div class="card card-profile card-plain">
+              <div class="row">
+                <div class="col-lg-5">
+                  <a href="javascript:;">
+                    <div class="position-relative">
+                      <div class="blur-shadow-image">
+                        <img
+                          class="w-100 border-radius-lg shadow-lg"
+                          src="../../assets/img/examples/clem-onojegaw.jpg"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-7 ps-0 my-auto">
+                  <div class="card-body text-start">
+                    <div class="p-md-0 pt-3">
+                      <h5 class="font-weight-bolder mb-0">Nora Hazel</h5>
+                      <p class="text-uppercase text-sm font-weight-bold mb-2">
+                        Legal Secretary
+                      </p>
+                    </div>
+                    <p class="mb-4">
+                      Do not dwell in the past, do not dream of the future,
+                      concentrate the mind...
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2"
+                    >
+                      <i class="fab fa-facebook"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-twitter btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-github btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-github"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card card-profile card-plain">
+              <div class="row">
+                <div class="col-lg-5">
+                  <a href="javascript:;">
+                    <div class="position-relative">
+                      <div class="blur-shadow-image">
+                        <img
+                          class="w-100 border-radius-lg shadow-lg"
+                          src="../../assets/img/examples/clem-onojeghuou.jpg"
+                        />
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <div class="col-lg-7 ps-0 my-auto">
+                  <div class="card-body text-start">
+                    <div class="p-md-0 pt-3">
+                      <h5 class="font-weight-bolder mb-0">Otto Gonzalez</h5>
+                      <p class="text-uppercase text-sm font-weight-bold mb-2">
+                        Landscape Architect
+                      </p>
+                    </div>
+                    <p class="mb-4">
+                      Success is not final, failure is not fatal: it is the
+                      courage to continue that counts...
+                    </p>
+                    <button
+                      type="button"
+                      class="btn btn-facebook btn-simple btn-lg mb-0 pe-3 ps-2"
+                    >
+                      <i class="fab fa-facebook"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-twitter btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-twitter"></i>
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-github btn-simple btn-lg mb-0 px-2"
+                    >
+                      <i class="fab fa-github"></i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- END Teams w/ 4 cards w/ image on left & descriptio/social link on right -->
+
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <footer class="footer py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mb-4 mx-auto text-center">
+            <a
+              href="#home-section"
+              target="_blank"
+              class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2"
+            >
+              Home
+            </a>
+            <a
+              href="#jadwal-section"
+              target="_blank"
+              class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2"
+            >
+              Ticket
+            </a>
+            <a
+              href="#teams-section"
+              target="_blank"
+              class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2"
+            >
+              Team
+            </a>
+          </div>
+          <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="text-secondary me-xl-4 me-4"
+            >
+              <span class="text-lg fab fa-dribbble"></span>
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="text-secondary me-xl-4 me-4"
+            >
+              <span class="text-lg fab fa-twitter"></span>
+            </a>
+            <a
+              href="javascript:;"
+              target="_blank"
+              class="text-secondary me-xl-4 me-4"
+            >
+              <span class="text-lg fab fa-instagram"></span>
+            </a>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-8 mx-auto text-center mt-1">
+            <p class="mb-0 text-secondary">
+              Copyright ©
+              <script>
+                document.write(new Date().getFullYear());
+              </script>
+              Material by Travel-Bus Tim.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+
+    <script
+      src="https://demos.creative-tim.com/argon-dashboard-pro/assets/vendor/jquery/dist/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/core/popper.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/core/bootstrap.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="" type="text/javascript"></script>
+    <script src="" type="text/javascript"></script>
+    <script src="" type="text/javascript"></script>
+    <script src="" type="text/javascript"></script>
+    <script
+      src="https://demos.creative-tim.com/argon-dashboard-pro/assets/vendor/prismjs/prism.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/argon-design-system-pro/assets/demo/docs.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/argon-design-system-pro/assets/demo/vendor/holder.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/plugins/moment.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/material-kit-pro.min.js"
+      type="text/javascript"
+    ></script>
+  </body>
+</html>

@@ -154,6 +154,9 @@ body{
      background: #FFFFFF;
      border-radius: 10px;
  }
+ .table-header{
+     font-weight:bold
+ }
  .form-cekdata-booking {
     
     margin:  250px auto;

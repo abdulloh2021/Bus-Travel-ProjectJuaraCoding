@@ -28,7 +28,7 @@
             <h1>Keberangkatan yang tersedia.</h1>
             </div><br>
             <div class="form-cekdata-keberangkatan">
-                <table class="table" th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}">
+                <table class="table" >
                     <tr>
                         <td scope="col">id</td>
                         <td scope="col">deskripsi</td>
@@ -37,7 +37,7 @@
                         <td scope="col">perusahaan</td> 
                         <td scope="col">harga</td>                   
                     </tr>
-                    <tr>
+                    <tr th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}"> 
                         <td scope="col" th:text ="${dataCekKeberangkatan1.id}">
                         <td scope="col" th:text ="${dataCekKeberangkatan1.deskripsi}">
                         <td scope="col" th:text ="${dataCekKeberangkatan1.waktu}">

@@ -26,11 +26,11 @@ public class Keberangkatan {
 	private String kelas;
 	private String tanggal;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="id_jurusan",referencedColumnName="id")
 	private Jurusan id_jurusan;
 	
-	@ManyToOne(cascade=CascadeType.ALL)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="no_polisi",referencedColumnName="no_polisi")
 	private Bus no_polisi;
 }
