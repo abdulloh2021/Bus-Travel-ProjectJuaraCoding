@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -38,7 +41,7 @@
         "
       >
         <div class="container">
-          <a class="navbar-brand text-white" href="javascript:;">TravelBus</a>
+          <a class="navbar-brand text-white" href="http://localhost:8080/">TravelBus</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -53,29 +56,42 @@
           <div class="collapse navbar-collapse" id="navbar-header-2">
             <ul class="navbar-nav mx-auto">
               <li class="nav-item">
-                <a class="nav-link" href="javascript:;"> Home </a>
+                <a class="nav-link text-white" href="http://localhost:8080/"> Home </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:;"> About Us </a>
+                <a class="nav-link text-white" href="http://localhost:8080/carikeberangkatan">
+                  Ticket
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="javascript:;"> Contact Us </a>
+                <a class="nav-link text-white" href="http://localhost:8080/team">
+                  Team
+                </a>
               </li>
             </ul>
 
             <ul class="nav navbar-nav">
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a
+                  class="nav-link text-white"
+                  href="https://twitter.com/CreativeTim"
+                >
                   <i class="fab fa-twitter"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link mx-2" href="#">
+                <a
+                  class="nav-link text-white mx-2"
+                  href="https://www.facebook.com/CreativeTim"
+                >
                   <i class="fab fa-facebook"></i>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a
+                  class="nav-link text-white"
+                  href="https://www.instagram.com/CreativeTimOfficial"
+                >
                   <i class="fab fa-instagram"></i>
                 </a>
               </li>
@@ -94,9 +110,10 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-8 mx-auto text-white text-center">
-              <h2 class="text-white">Booking telah berhasil dibatalkan</h2>
+              <h2 class="text-white" th:text="'Booking Id : '+${formCancelBooking.id}+' telah berhasil dibatalkan'"></h2>
               <p class="lead">-</p>
             </div>
+            
           </div>
         </div>
       </div>
@@ -117,24 +134,29 @@
                   <h3 class="text-center">Ingin melakukan pemesanan baru?</h3>
                   <br />
                   <br />
+                  
                   <div class="row">
                     <div class="col-md-12">
+                      <a href="http://localhost:8080/booking">
                       <button
                         type="submit"
                         class="btn bg-gradient-dark w-100"
-                        href="http://localhost:8080/formbooking"
+                        
                       >
                         Booking Tiket baru
                       </button>
+                    </a>
                     </div>
                     <div class="col-md-12">
+                      <a href="http://localhost:8080/carikeberangkatan">
                       <button
                         type="submit"
                         class="btn bg-gradient-dark w-100"
-                        href="http://localhost:8080/carikeberangkatan"
+                        
                       >
                         Cari jadwal keberangkatan TravelBus
                       </button>
+                    </a>
                     </div>
                   </div>
                 </div>
@@ -249,51 +271,3 @@
     ></script>
   </body>
 </html>
-
-<!-- lama -->
-<!-- <!DOCTYPE html> -->
-<!-- <html>
-<head>
-	<meta charset="utf-8">
-	<title>Form Login</title>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <link href="css/style.css" rel="stylesheet">
-   
-
-</head>
-<body>
-    <div id="header">
-        <div class="logo">
-        <img src="https://scontent.fcgk18-2.fna.fbcdn.net/v/t1.6435-9/73302268_434884863835655_3005167567376482304_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHTdAP3_rDnA4NIvj7sEUnKedq6qcFHSEV52rqpwUdIRVqabAVjNqTZtffcUXjp6HmZatcCf7nz5ESl69dT_Av-&_nc_ohc=IxaaEPafPIsAX901GHC&_nc_ht=scontent.fcgk18-2.fna&oh=628052d9726a3f9e321ec0e6cf138d36&oe=61C4D894" class="img-fluid"alt="game">
-        </div>
-        <div class="namalogo">
-        <h1>Kucing Menangis</h1>
-        </div>
- 
-   
-            
-    </div>
-    
-        <form>
-            <div class="header-form-login-gagal">
-             <img src="image/kucing-gagal.png" class="img-fluid"alt="game">
-             <br>
-            <h1>Booking berhasil dibatalkan</h1>
-            
-           
-        
-            </div>
-            
-            
-            
-        </form>
-    
-    
-</body>
-<<<<<<< HEAD
-</html> -->
-=======
-</html> -->
->>>>>>> 87ac474dc1091fed4e850e197a670a627d35f517

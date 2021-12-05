@@ -33,9 +33,13 @@ public class WebController {
 	@Autowired
 	BookingRepository bookingRepo;
 
-    @GetMapping("/gagal")
+    @GetMapping("/")
 	public String GetDora1() {
-		return "kenihilan";
+		return "home";
+	}
+	@GetMapping("/team")
+	public String Getteam1() {
+		return "about-us";
 	}
 
 	
@@ -122,16 +126,13 @@ public class WebController {
 
 	@GetMapping("/cancel")
 	public String cancel(Model model) {
-		
 		model.addAttribute("formCancelBooking", new Booking());
 		return "formcancel";
 	}
 
 	@PostMapping("/cancelbooking")
 	public String cancelBooking(@ModelAttribute("formCancelBooking") Booking formCancelBooking, Model model){
-		long angka = formCancelBooking.getId();
-		bookingRepo.deleteByIdBooking(angka);
-		//bookingRepo.deleteById(formCancelBooking.getId());
+		bookingRepo.deleteById(formCancelBooking.getId());
 		
 		return "cancelmessage";
 		

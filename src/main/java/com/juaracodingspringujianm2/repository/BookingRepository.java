@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 public interface BookingRepository extends JpaRepository <Booking, Long> {
-    @Query(value="DELETE FROM booking WHERE id = ?1",
+    @Query(value="DELETE FROM booking WHERE booking.id = ?1",
 	nativeQuery = true)
     Booking deleteByIdBooking(Long id);
 
