@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+
+
+
 public class LoginPenumpangController {
     @Autowired
 	PenumpangRepository penumpangRepo;
@@ -28,22 +31,6 @@ public class LoginPenumpangController {
 	@Autowired
 	BookingRepository bookingRepo;
 
-
-    @GetMapping("/loginpenumpang")
-	public String GetLoginPenumpang(Model model) {
-		model.addAttribute("formCekData", new Penumpang());
-		return "formlogin";
-	}
-	@PostMapping("/cekpenumpang")
-	public String cekPenumpang(@ModelAttribute("formCekData") Penumpang formCekData, Model model){
-		List<Penumpang> dataCekPenumpang = penumpangRepo.findByNik(formCekData.getNik()); 
-		
-		if (dataCekPenumpang.size() == 0) {
-			return "kenihilan";
-		} else {
-			model.addAttribute("dataCekPenumpangList", dataCekPenumpang);
-			return "detailpenumpang1";
-		}
-		
-	}
+	
+	
 }

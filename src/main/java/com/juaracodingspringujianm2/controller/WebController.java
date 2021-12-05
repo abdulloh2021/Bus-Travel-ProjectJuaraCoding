@@ -39,23 +39,7 @@ public class WebController {
 	}
 
 	
-    @GetMapping("/loginpenumpang")
-	public String GetLoginPenumpang(Model model) {
-		model.addAttribute("formCekData", new Penumpang());
-		return "formlogin";
-	}
-	@PostMapping("/cekpenumpang")
-	public String cekPenumpang(@ModelAttribute("formCekData") Penumpang formCekData, Model model){
-		List<Penumpang> dataCekPenumpang = penumpangRepo.findByNik(formCekData.getNik()); 
-		
-		if (dataCekPenumpang.size() == 0) {
-			return "kenihilan";
-		} else {
-			model.addAttribute("dataCekPenumpangList", dataCekPenumpang);
-			return "detailpenumpang1";
-		}
-		
-	}
+    
    
     @GetMapping("/daftar")
 	public String GetPenumpangBaru(Model model) {
@@ -199,10 +183,27 @@ public class WebController {
 		
 	// }
 
+	
 
-
-
-
+	@GetMapping("/loginpenumpang")
+	public String GetLoginPenumpang(Model model) {
+		model.addAttribute("formCekData", new Penumpang());
+		return "formlogin";
+	}
+	@PostMapping("/cekpenumpang")
+	public String cekPenumpang(@ModelAttribute("formCekData") Penumpang formCekData, Model model){
+		// List<Penumpang> dataCekPenumpang = penumpangRepo.findByNik(formCekData.getNik()); 
+		List<Penumpang> dataCekPenumpang = penumpangRepo.findByNikAndNama(formCekData.getNik(), formCekData.getNama()); 
+		
+		if (dataCekPenumpang.size() == 0) {
+			return "kenihilan";
+		} else {
+			model.addAttribute("dataCekPenumpangList", dataCekPenumpang);
+			return "detailpenumpang1";
+		}
+		
+	}
+	
 
 
 
