@@ -124,6 +124,8 @@
               "
             >
               <div class="col-lg-3 mt-lg-n2 mt-2">
+          
+
                 <label class="ms-0">Keberangkatan</label>
                 <input
                   type="text"
@@ -132,7 +134,7 @@
                   placeholder="Terminal Keberangkatan"
                   th:field="*{id_jurusan.terminal_awal}"
                 />
-                <div class="input-group input-group-static mb-4">
+                <!-- <div class="input-group input-group-static mb-4">
                   <select class="form-control" id="exampleFormControlSelect1">
                     <option>Pulo Gebang</option>
                     <option>2</option>
@@ -140,18 +142,20 @@
                     <option>4</option>
                     <option>5</option>
                   </select>
-                </div>
+                </div> -->
               </div>
               <div class="col-lg-3 mt-lg-n2 mt-2">
+                
+
                 <label class="ms-0">Tujuan</label>
                 <input
-                type="text"
-                class="form-control"
-                id="inputTerminalAkhir"
-                placeholder="Terminal Akhir"
-                th:field="*{id_jurusan.terminal_akhir}"
-              />
-                <div class="input-group input-group-static mb-4">
+                  type="text"
+                  class="form-control"
+                  id="inputTerminalAkhir"
+                  placeholder="Terminal Akhir"
+                  th:field="*{id_jurusan.terminal_akhir}"
+                />
+                <!-- <div class="input-group input-group-static mb-4">
                   <select class="form-control" id="exampleFormControlSelect1">
                     <option>Poris</option>
                     <option>2</option>
@@ -159,7 +163,7 @@
                     <option>4</option>
                     <option>5</option>
                   </select>
-                </div>
+                </div> -->
               </div>
               <!-- =============================  Date input ========================= -->
               <div class="col-lg-3 mt-lg-n2 mt-2">
@@ -171,11 +175,11 @@
                   placeholder="Tanggal"
                   th:field="*{tanggal}"
                 />
-                
+
                 <div class="input-group input-group-dynamic">
                   <!-- <div class="input-group input-group-static my-3"> -->
 
-                  <input type="date" class="form-control" />
+                  <!-- <input type="date" class="form-control" th:field="*{tanggal}"/> -->
                 </div>
               </div>
               <!-- ==================================================================== -->
@@ -194,252 +198,140 @@
           </form>
         </div>
 
-        <!-- <form
-          th:object="${formCekDataKeberangkatan}"
-          th:action="@{/cekkeberangkatan}"
-          method="post"
-        >
-          <div class="header-form-daftar">
-            <h1>Cari Keberangkatan</h1>
-          </div>
-          <br />
-          <div class="form-daftar">
-            
-            <div class="form-group">
-              <label for="exampleTerminalKeberangkatan"
-                >Terminal Keberangkatan</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="inputTerminalKeberangkatan"
-                placeholder="Terminal Keberangkatan"
-                th:field="*{id_jurusan.terminal_awal}"
-              />
-              
-            </div>
-            <div class="form-group">
-              <label for="exampleTerminaltujuann"
-                >Terminal Tujuan</label
-              >
-              <input
-                type="text"
-                class="form-control"
-                id="inputTerminalAkhir"
-                placeholder="Terminal Keberangkatan"
-                th:field="*{id_jurusan.terminal_akhir}"
-              />
-              
-            </div>
-            <div class="form-group">
-              <label for="exampleTanggal">Tanggal</label>
-              <input
-                type="text"
-                class="form-control"
-                id="inputTanggal"
-                placeholder="Tanggal"
-                th:field="*{tanggal}"
-              />
-            </div>
-            <br />
-            <div class="submit">
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-          </div>
-        </form> -->
-        <!-- =========================== tabel =================== -->
-        <form>
-          <div class="header-form-cekdata-keberangkatan">
-            <h1>Keberangkatan yang tersedia.</h1>
-          </div>
-          <br />
-          <div class="form-cekdata-keberangkatan">
-            <table class="table">
-              <tr>
-                <td scope="col">id</td>
-                <td scope="col">deskripsi</td>
-                <td scope="col">waktu</td>
-                <td scope="col">kelas</td>
-                <td scope="col">perusahaan</td>
-                <td scope="col">harga</td>
-              </tr>
-              <tr th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}">
-                <td scope="col" th:text="${dataCekKeberangkatan1.id}"></td>
-                <td
-                  scope="col"
-                  th:text="${dataCekKeberangkatan1.deskripsi}"
-                ></td>
-                <td scope="col" th:text="${dataCekKeberangkatan1.waktu}"></td>
-                <td scope="col" th:text="${dataCekKeberangkatan1.kelas}"></td>
-                <td
-                  scope="col"
-                  th:text="${dataCekKeberangkatan1.perusahaan}"
-                ></td>
-                <td scope="col" th:text="${dataCekKeberangkatan1.harga}"></td>
-              </tr>
-            </table>
-          </div>
-        </form>
-        <!-- =========================== end tabel ================= -->
-
-        <!-- ==================================================================== -->
-        <!-- <p>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Link with href
-        </a>
         
-      </p>
-      <div class="collapse" id="collapseExample">
-        <div class="card card-body">
-          Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+      </div>
+    </header>
+    <br><br><br><br>
+    <div class="container" id="jadwal-section">
+      <div class="row">
+        <div class="col-8 mx-auto text-center mb-5">
+          <span class="badge badge-primary mb-2">Jadwal</span>
+          <h2>Tiket Perjalanan</h2>
+          <p>Cari Tiketmu di BusTravel Aja!</p>
         </div>
-      </div> -->
-        <!-- =================================================================== -->
+      </div>
 
-        <div class="container" id="jadwal-section">
-          <div class="row">
-            <div class="col-8 mx-auto text-center mb-5">
-              <span class="badge badge-primary mb-2">Jadwal</span>
-              <h2>Tiket Perjalanan</h2>
-              <p>Cari Tiketmu di BusTravel Aja!</p>
+      <!-- ============== tiket =================== -->
+
+      <!-- ============== card =============== -->
+      <div th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}">
+        <a
+          data-bs-toggle="collapse"
+          th:href="'#dataBooking'+${dataCekKeberangkatan1.id}"
+          role="button"
+          aria-expanded="false"
+          aria-controls="dataBooking"
+        >
+          <div class="row min-vh-25">
+            <div class="row my-4">
+              <div class="card card-background">
+                <div
+                  class="full-background"
+                  style="
+                    background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
+                  "
+                ></div>
+
+                <div class="card-body pt-5">
+                  <h4 th:text="${dataCekKeberangkatan1.id}"></h4>
+                  <h3
+                    class="text-white font-weight-normal rightMost"
+                    align="right"
+                    th:text="${dataCekKeberangkatan1.harga}"
+                  >
+                    <!-- Rp. 10.000,- -->
+                  </h3>
+                  <h4
+                    class="text-white font-weight-normal rightMost"
+                    align="right"
+                    th:text="${dataCekKeberangkatan1.kelas}"
+                  >
+                    <!-- Ekonomi -->
+                  </h4>
+
+                  
+                  <h2
+                    class="text-white font-weight-normal"
+                    th:text="'ID : '+${dataCekKeberangkatan1.id}"
+                  >
+                    <!-- Sumber Melarat -->
+                  </h2>
+
+                  <h2
+                    class="text-white font-weight-normal"
+                    th:text="${dataCekKeberangkatan1.perusahaan}"
+                  >
+                    <!-- Sumber Melarat -->
+                  </h2>
+                  <h3
+                    class="text-white font-weight-normal"
+                    th:text="${dataCekKeberangkatan1.deskripsi}"
+                  >
+                    <!-- Jakarta - Solo -->
+                  </h3>
+                  <h4
+                    class="text-white font-weight-normal"
+                    th:text="${dataCekKeberangkatan1.waktu}"
+                  >
+                    <!-- 14/02/2021 10:10:00 -->
+                  </h4>
+                  <p>
+                    88888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
+        </a>
 
-          <!-- ============== tiket =================== -->
-
-          <!-- ============== card =============== -->
-          <div th:each="dataCekKeberangkatan1 : ${dataCekKeberangkatanList}">
-            <a
-              data-bs-toggle="collapse"
-              th:href="'#dataBooking'+${dataCekKeberangkatan1.id}"
-              role="button"
-              aria-expanded="false"
-              aria-controls="dataBooking"
-            >
-              <div class="row min-vh-25">
-                <div class="row my-4">
-                  <div class="card card-background">
-                    <div
-                      class="full-background"
-                      style="
-                        background-image: url('https://images.unsplash.com/photo-1497294815431-9365093b7331?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1950&q=80');
-                      "
-                    ></div>
-
-                    <div class="card-body pt-5">
-                      <h4 th:text="${dataCekKeberangkatan1.id}"></h4>
-                      <h3
-                        class="text-white font-weight-normal rightMost"
-                        align="right"
-                        th:text="${dataCekKeberangkatan1.harga}"
-                      >
-                        <!-- Rp. 10.000,- -->
-                      </h3>
-                      <h4
-                        class="text-white font-weight-normal rightMost"
-                        align="right"
-                        th:text="${dataCekKeberangkatan1.kelas}"
-                      >
-                        <!-- Ekonomi -->
-                      </h4>
-
-                      <br /><br />
-
-                      <h2
-                        class="text-white font-weight-normal"
-                        th:text="${dataCekKeberangkatan1.perusahaan}"
-                      >
-                        <!-- Sumber Melarat -->
-                      </h2>
-                      <h3
-                        class="text-white font-weight-normal"
-                        th:text="${dataCekKeberangkatan1.deskripsi}"
-                      >
-                        <!-- Jakarta - Solo -->
-                      </h3>
-                      <h4
-                        class="text-white font-weight-normal"
-                        th:text="${dataCekKeberangkatan1.waktu}"
-                      >
-                        <!-- 14/02/2021 10:10:00 -->
-                      </h4>
-                      <p>
-                        888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888888
-                      </p>
+        <!-- =============================== ini yangkalo di klik muncul ====================== -->
+        <div class="collapse" th:id="'dataBooking'+${dataCekKeberangkatan1.id}">
+          <div class="card card-body">
+            <section>
+              <div class="container py-4">
+                <div class="row">
+                  <div
+                    class="
+                      col-lg-7
+                      mx-auto
+                      d-flex
+                      justify-content-center
+                      flex-column
+                    "
+                  >
+                    <div class="row">
+                      <a href="http://localhost:8080/booking">
+                        <div class="col-md-12">
+                          <button
+                            type="submit"
+                            class="btn bg-gradient-dark w-100"
+                          >
+                            Booking Now
+                          </button>
+                        </div>
+                      </a>
                     </div>
 
+                    
                   </div>
                 </div>
               </div>
-            </a>
-
-            <!-- =============================== ini yangkalo di klik muncul ====================== -->
-            <div class="collapse" th:id="'dataBooking'+${dataCekKeberangkatan1.id}">
-              <div class="card card-body">
-                <section>
-                  <div class="container py-4">
-                    <div class="row">
-                      <div
-                        class="
-                          col-lg-7
-                          mx-auto
-                          d-flex
-                          justify-content-center
-                          flex-column
-                        "
-                      >
-                        <h3 class="text-center">Booking</h3>
-                        <form
-                          role="form"
-                          id="contact-form"
-                          method="post"
-                          autocomplete="off"
-                        >
-                          <div class="card-body">
-                            <div class="mb-4">
-                              <h4 th:text="${dataCekKeberangkatan1.id}"></h4>
-                              <div class="input-group input-group-dynamic">
-                                <label class="form-label">Nama</label>
-                                <input type="text" class="form-control" />
-                              </div>
-                            </div>
-
-                            <div class="row">
-                              <div class="col-md-12">
-                                <button
-                                  type="submit"
-                                  class="btn bg-gradient-dark w-100"
-                                >
-                                  Send Message
-                                </button>
-                              </div>
-                            </div>
-                          </div>
-                        </form>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
+            </section>
           </div>
-          <!-- ============== end card ============== -->
-         
-
-          <!-- ====================================== -->
         </div>
       </div>
-    </header>
+      <!-- ============== end card ============== -->
 
+      <!-- ====================================== -->
+    </div>
     <!-- =============================================== teams ======================================= -->
     <section class="py-5" id="teams-section">
       <div class="container">
         <div class="row">
           <div class="col-md-8 mx-auto text-center mb-5">
-            <h3>The Executive Team</h3>
+            <h3>Team</h3>
             <p class="font-weight-normal">
-              This is the paragraph where you can write more details about your
-              team. Keep you user engaged by providing meaningful information.
+              Travel Bus Team
             </p>
           </div>
         </div>
@@ -454,6 +346,7 @@
                         <img
                           class="w-100 border-radius-lg shadow-lg"
                           src="../../assets/foto/abdul.jpg"
+                          alt="profile image" height="320px"
                         />
                       </div>
                     </div>
@@ -502,8 +395,8 @@
                       <div class="blur-shadow-image">
                         <img
                           class="w-100 border-radius-lg shadow-lg"
-                          src="../../assets/img/examples/studio-3.jpg"
-                          alt="profile image"
+                          src="../../assets/foto/mufqi.jpg"
+                          alt="profile image"  height="320px"
                         />
                       </div>
                     </div>
@@ -512,9 +405,9 @@
                 <div class="col-lg-7 ps-0 my-auto">
                   <div class="card-body text-start">
                     <div class="p-md-0 pt-3">
-                      <h5 class="font-weight-bolder mb-0">Jordan Michael</h5>
+                      <h5 class="font-weight-bolder mb-0">Mufqi</h5>
                       <p class="text-uppercase text-sm font-weight-bold mb-2">
-                        UI Designer
+                        Front End Developer
                       </p>
                     </div>
                     <p class="mb-4">
@@ -555,7 +448,8 @@
                       <div class="blur-shadow-image">
                         <img
                           class="w-100 border-radius-lg shadow-lg"
-                          src="../../assets/img/examples/clem-onojegaw.jpg"
+                          src="../../assets/foto/adam.jpg"
+                          height="320px"
                         />
                       </div>
                     </div>
@@ -564,9 +458,9 @@
                 <div class="col-lg-7 ps-0 my-auto">
                   <div class="card-body text-start">
                     <div class="p-md-0 pt-3">
-                      <h5 class="font-weight-bolder mb-0">Nora Hazel</h5>
+                      <h5 class="font-weight-bolder mb-0">Adam Abdillah</h5>
                       <p class="text-uppercase text-sm font-weight-bold mb-2">
-                        Legal Secretary
+                        Beck End Developer
                       </p>
                     </div>
                     <p class="mb-4">
@@ -605,7 +499,8 @@
                       <div class="blur-shadow-image">
                         <img
                           class="w-100 border-radius-lg shadow-lg"
-                          src="../../assets/img/examples/clem-onojeghuou.jpg"
+                          src="../../assets/foto/anindia.jpg"
+                          height="320px"
                         />
                       </div>
                     </div>
@@ -614,9 +509,9 @@
                 <div class="col-lg-7 ps-0 my-auto">
                   <div class="card-body text-start">
                     <div class="p-md-0 pt-3">
-                      <h5 class="font-weight-bolder mb-0">Otto Gonzalez</h5>
+                      <h5 class="font-weight-bolder mb-0">Anindia Adyutawati</h5>
                       <p class="text-uppercase text-sm font-weight-bold mb-2">
-                        Landscape Architect
+                        Beck End Developer
                       </p>
                     </div>
                     <p class="mb-4">

@@ -154,6 +154,7 @@ public class WebController {
 	}
 
 
+	
 	@GetMapping("/booking")
 	public String GetDora7(Model model) {
 		model.addAttribute("formDataBooking", new Booking());
@@ -175,6 +176,9 @@ public class WebController {
 		return "bookingdetail";
 		
 	}
+	
+	
+
 // yg lama
 	// @PostMapping("/postbooking")
 	// public String postBooking(@ModelAttribute("formDataBooking") Booking formDataBooking, Model model){

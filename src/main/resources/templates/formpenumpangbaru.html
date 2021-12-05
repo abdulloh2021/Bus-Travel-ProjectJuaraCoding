@@ -1,60 +1,289 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="utf-8">
-	<title>Form Login</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>form penumpang baru</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700"
+    />
+    <script
+      src="https://kit.fontawesome.com/42d5adcbca.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Material Icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+      rel="stylesheet"
+    />
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <link href="css/style.css" rel="stylesheet">
-   
+    <link
+      id="pagestyle"
+      href="https://demos.creative-tim.com/material-kit-pro/assets/css/material-kit-pro.min.css?v=3.0.0"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- -------- START HEADER 4 w/ search book a ticket form ------- -->
+    <header>
+      <nav
+        class="
+          navbar navbar-expand-lg navbar-dark navbar-absolute
+          bg-transparent
+          shadow-none
+        "
+      >
+        <div class="container">
+          <a class="navbar-brand text-white" href="javascript:;">TravelBus</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbar-header-2"
+            aria-controls="navbar-header-2"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbar-header-2">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;"> Home </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;"> About Us </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:;"> Contact Us </a>
+              </li>
+            </ul>
 
-</head>
-<body>
-    <div id="header">
-        <div class="logo">
-        <img src="https://scontent.fcgk18-2.fna.fbcdn.net/v/t1.6435-9/73302268_434884863835655_3005167567376482304_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeHTdAP3_rDnA4NIvj7sEUnKedq6qcFHSEV52rqpwUdIRVqabAVjNqTZtffcUXjp6HmZatcCf7nz5ESl69dT_Av-&_nc_ohc=IxaaEPafPIsAX901GHC&_nc_ht=scontent.fcgk18-2.fna&oh=628052d9726a3f9e321ec0e6cf138d36&oe=61C4D894" class="img-fluid"alt="game">
+            <ul class="nav navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fab fa-twitter"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link mx-2" href="#">
+                  <i class="fab fa-facebook"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <i class="fab fa-instagram"></i>
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="namalogo">
-        <h1>Kucing Menangis</h1>
-        </div>
- 
-   
-            
-    </div>
-    
-        <form th:object ="${formData}" th:action="@{/createpenumpang}" method="post">
-            <div class="header-form-daftar">
-            <h1>Form Pendaftaran Penumpang</h1>
-            </div><br>
-
-            
-
-
-
-            <div class="form-daftar">
-                
-                    <div class="form-group">
-                        <label for="exampleNik">NIK</label>
-                        <input type="text" class="form-control" id="inputNik"  placeholder="NIK" th:field ="*{nik}">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleNama">Nama</label>
-                        <input type="text" class="form-control" id="inputNama"  placeholder="Nama" th:field ="*{nama}">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleNomorTelepon">Nomor Telepon</label>
-                        <input type="text" class="form-control" id="inputNomorTelepon"  placeholder="Nomor Telepon" th:field ="*{telepon}">
-                    </div>
-                
-                    <br>
-                    <div class="submit">
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                
+      </nav>
+      <div
+        class="page-header min-vh-55"
+        style="
+          background-image: url(https://images.unsplash.com/photo-1501446529957-6226bd447c46?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2378&q=80);
+        "
+        loading="lazy"
+      >
+        <span class="mask bg-gradient-dark opacity-4"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mx-auto text-white text-center">
+              <h2 class="text-white">Selamat Datang di TravelBus,</h2>
+              <p class="lead">
+                Silahkan Daftar agar lebih mudah mendapatkan tiket Bus
+              </p>
             </div>
-        </form>
-    
-    
-</body>
+          </div>
+        </div>
+      </div>
+      <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+        <div class="container">
+          <section>
+            <div class="container py-4">
+              <div class="row">
+                <div
+                  class="
+                    col-lg-7
+                    mx-auto
+                    d-flex
+                    justify-content-center
+                    flex-column
+                  "
+                >
+                  <h3 class="text-center">Form Pendaftaran Penumpang</h3>
+                  <form
+                    th:object="${formData}"
+                    th:action="@{/createpenumpang}"
+                    method="post"
+                    autocomplete="off"
+                  >
+                    <div class="card-body">
+                    
+                        <div class="mb-4">
+                          <div class="input-group input-group-dynamic">
+                            <label class="form-label">NIK</label>
+                            
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="inputNik"
+                              th:field="*{nik}"
+                            />
+                          </div>
+                        
+                        </div>
+                      <div class="mb-4">
+                        <div class="input-group input-group-dynamic">
+                          <label class="form-label">Nama</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="inputNama"
+                            th:field="*{nama}"
+                          />
+                        </div>
+                      </div>
+                      <div class="mb-4">
+                        <div class="input-group input-group-dynamic">
+                          <label class="form-label">Nomor Telepon</label>
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="inputNomorTelepon"
+                            th:field="*{telepon}"
+                          />
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-12">
+                          <button
+                            type="submit"
+                            class="btn bg-gradient-dark w-100"
+                          >
+                            Daftar
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </header>
+    <!-- -------- END  ------- -->
+
+
+
+    <!-- -------- START FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+    <footer class="footer py-5">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-8 mb-4 mx-auto text-center">
+              <a
+                href="#home-section"
+                target="_blank"
+                class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2"
+              >
+                Home
+              </a>
+              <a
+                href="#jadwal-section"
+                target="_blank"
+                class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2"
+              >
+                Ticket
+              </a>
+              <a
+                href="#teams-section"
+                target="_blank"
+                class="text-secondary me-xl-5 me-3 mb-sm-0 mb-2"
+              >
+                Team
+              </a>
+            </div>
+            <div class="col-lg-8 mx-auto text-center mb-4 mt-2">
+              <a
+                href="javascript:;"
+                target="_blank"
+                class="text-secondary me-xl-4 me-4"
+              >
+                <span class="text-lg fab fa-dribbble"></span>
+              </a>
+              <a
+                href="javascript:;"
+                target="_blank"
+                class="text-secondary me-xl-4 me-4"
+              >
+                <span class="text-lg fab fa-twitter"></span>
+              </a>
+              <a
+                href="javascript:;"
+                target="_blank"
+                class="text-secondary me-xl-4 me-4"
+              >
+                <span class="text-lg fab fa-instagram"></span>
+              </a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-8 mx-auto text-center mt-1">
+              <p class="mb-0 text-secondary">
+                Copyright ©
+                <script>
+                  document.write(new Date().getFullYear());
+                </script>
+                Material by Travel-Bus Tim.
+              </p>
+            </div>
+          </div>
+        </div>
+      </footer>
+      <!-- -------- END FOOTER 3 w/ COMPANY DESCRIPTION WITH LINKS & SOCIAL ICONS & COPYRIGHT ------- -->
+      <script
+      src="https://demos.creative-tim.com/argon-dashboard-pro/assets/vendor/jquery/dist/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/core/popper.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/core/bootstrap.min.js"
+      type="text/javascript"
+    ></script>
+    <script src="" type="text/javascript"></script>
+    <script src="" type="text/javascript"></script>
+    <script src="" type="text/javascript"></script>
+    <script src="" type="text/javascript"></script>
+    <script
+      src="https://demos.creative-tim.com/argon-dashboard-pro/assets/vendor/prismjs/prism.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/argon-design-system-pro/assets/demo/docs.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/argon-design-system-pro/assets/demo/vendor/holder.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/plugins/moment.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://demos.creative-tim.com/material-kit-pro/assets/js/material-kit-pro.min.js"
+      type="text/javascript"
+    ></script>
+  </body>
 </html>

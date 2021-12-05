@@ -2,8 +2,10 @@ package com.juaracodingspringujianm2.controller;
 
 import java.util.List;
 
+import com.juaracodingspringujianm2.model.Booking;
 import com.juaracodingspringujianm2.model.Keberangkatan;
 import com.juaracodingspringujianm2.model.KeberangkatanBus;
+import com.juaracodingspringujianm2.model.Penumpang;
 import com.juaracodingspringujianm2.repository.BookingRepository;
 import com.juaracodingspringujianm2.repository.KeberangkatanRepository;
 import com.juaracodingspringujianm2.repository.PenumpangRepository;
@@ -28,8 +30,9 @@ public class CariBusController {
 	BookingRepository bookingRepo;
 
     @GetMapping("/carikeberangkatan")
-	public String cariKeberangkatan(Model model) {
+	public String cariKeberangkatan(Model model, Model model1) {
 		model.addAttribute("formCekDataKeberangkatan", new Keberangkatan());
+		
 		return "tampil";
 	}
 
@@ -46,4 +49,7 @@ public class CariBusController {
 			return "tampil";
 		}
 	}
+
+
+	
 }
